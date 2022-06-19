@@ -1,6 +1,6 @@
 package com.tp.yogioteur.util;
 
-public class PageUtils {
+public class PageUtilsFAQ {
 
 	
 	/***************************************************************************
@@ -89,24 +89,24 @@ public class PageUtils {
 		path += concat;
 		
 		// 첫 페이지로 이동
-		if(page == 1) {
-			sb.append("");
-		} else {
-			sb.append("<a href=\"" + path + "page=" + 1 + "\">start</a>");
-		}
+//		if(page == 1) {
+//			sb.append("");
+//		} else {
+//			sb.append("<a href=\"" + path + "page=" + 1 + "\">start</a>");
+//		}
 		
 		// 이전 블록으로 이동
 		if(page < pagePerBlock) {
 			sb.append("");
 		} else {
-			sb.append("<a href=\"" + path + "page=" + (beginPage - 5) + "\">prevBlock</a>");
+			sb.append("<a href=\"" + path + "page=" + (beginPage - 5) + "\"> ◀◀ </a>");
 		}
 		
 		// 이전 페이지 (prev), 1페이지는 <a> 태그가 없다.
 		if(page == 1) {
 			sb.append("");
 		} else {
-			sb.append("<a href=\"" + path + "page=" + (page - 1) + "\">prev</a>");
+			sb.append("<a href=\"" + path + "page=" + (page - 1) + "\"> ◁ </a>");
 		}
 		
 		// 페이지 번호 (1 2 3 4 5), 현재 페이지는 <a> 태그가 없다.
@@ -122,22 +122,22 @@ public class PageUtils {
 		if(page == totalPage) {
 			sb.append("");
 		} else {
-			sb.append("<a href=\"" + path + "page=" + (page + 1) + "\">next</a>");
+			sb.append("<a href=\"" + path + "page=" + (page + 1) + "\"> ▷ </a>");
 		}
 		
 		// 다음 블록으로 이동, 마지막 블록에는 <a> 태그가 없다.
 		if(endPage == totalPage) {
 			sb.append("");
 		} else {
-			sb.append("<a href=\"" + path + "page=" + (endPage + 1) + "\">nextBlock</a>");
+			sb.append("<a href=\"" + path + "page=" + (endPage + 1) + "\"> ▶▶ </a>");
 		}
 		
 		// 마지막 페이지로 이동
-		if(page == totalPage) {
-			sb.append("");
-		} else {
-			sb.append("<a href=\"" + path + "page=" + totalPage + "\">last</a>");
-		}
+//		if(page == totalPage) {
+//			sb.append("");
+//		} else {
+//			sb.append("<a href=\"" + path + "page=" + totalPage + "\">last</a>");
+//		}
 		
 		return sb.toString();
 		

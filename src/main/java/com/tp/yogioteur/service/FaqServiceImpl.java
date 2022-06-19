@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 
 import com.tp.yogioteur.domain.FaqDTO;
 import com.tp.yogioteur.mapper.FaqMapper;
-import com.tp.yogioteur.util.PageUtils;
+import com.tp.yogioteur.util.PageUtilsFAQ;
 
 @Service
 public class FaqServiceImpl implements FaqService {
@@ -28,7 +28,7 @@ public class FaqServiceImpl implements FaqService {
 		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
 		int page = Integer.parseInt(opt.orElse("1"));
 		
-		PageUtils pageUtils = new PageUtils();
+		PageUtilsFAQ pageUtils = new PageUtilsFAQ();
 		pageUtils.setPageEntity(totalRecord, page);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -76,7 +76,7 @@ public class FaqServiceImpl implements FaqService {
 		
 		int findRecord = faqMapper.selectFindCount(map);
 		
-		PageUtils pageUtils = new PageUtils();
+		PageUtilsFAQ pageUtils = new PageUtilsFAQ();
 		pageUtils.setPageEntity(findRecord, page);
 		
 		map.put("beginRecord", pageUtils.getBeginRecord());
